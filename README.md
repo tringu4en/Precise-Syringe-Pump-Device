@@ -5,27 +5,27 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ## 📖 Overview
-This project is a medical-grade automated syringe pump designed for high-precision fluid delivery in laboratory and clinical settings. [cite_start]Developed as part of the **Medical Design Course** at the **School of Biomedical Engineering, International University (VNU-HCM)** [cite: 1-4][cite_start], the system focuses on resolving common intravenous administration errors through automation and safety monitoring[cite: 76, 89].
+This project is a medical-grade automated syringe pump designed for high-precision fluid delivery in laboratory and clinical settings. Developed as part of the **Medical Design Course** at the **School of Biomedical Engineering, International University (VNU-HCM)**, the system focuses on resolving common intravenous administration errors through automation and safety monitoring.
 
-[cite_start]The device utilizes an **ESP32 microcontroller** and **TMC2209 SilentStepStick driver** to achieve a verified dosing accuracy of **99.62%**[cite: 265]. It features a custom 3D-printed enclosure, a real-time TFT display interface, and a closed-loop safety system.
+The device utilizes an **ESP32 microcontroller** and **TMC2209 SilentStepStick driver** to achieve a verified dosing accuracy of **99.62%**. It features a custom 3D-printed enclosure, a real-time TFT display interface, and a closed-loop safety system.
 
 ![Device Design](device-design.png)
-[cite_start]*(Figure 9: The complete design of Syringe pump machine [cite: 184])*
+*(Figure 9: The complete design of Syringe pump machine)*
 
 ## ✨ Key Features
-* [cite_start]**High Precision:** Volumetric accuracy of **99.62%** with a standard deviation of **±0.012 mL** (verified via gravimetric testing)[cite: 265].
-* [cite_start]**Wide Flow Range:** Capable of flow rates from **0.1 mL/h to 1500 mL/h**[cite: 139].
-* [cite_start]**Silent Operation:** Utilizes TMC2209 drivers with **StealthChop** technology for vibration-free fluid delivery[cite: 369].
+* **High Precision:** Volumetric accuracy of **99.62%** with a standard deviation of **±0.012 mL** (verified via gravimetric testing).
+* **Wide Flow Range:** Capable of flow rates from **0.1 mL/h to 1500 mL/h**.
+* **Silent Operation:** Utilizes TMC2209 drivers with **StealthChop** technology for vibration-free fluid delivery.
 * **Advanced Safety:**
-    * [cite_start]**Soft Start Algorithm:** Prevents motor stalling by gradually ramping velocity during startup[cite: 213].
-    * [cite_start]**RPM Limiting:** Firmware Hard Limit prevents speeds exceeding 50 RPM to protect mechanics[cite: 208].
-    * [cite_start]**Hardware Interlocks:** Dual limit switches and clamp sensors to detect mechanical faults[cite: 252].
-* [cite_start]**User Interface:** 1.69-inch IPS TFT display for real-time monitoring and parameter adjustment[cite: 254].
+    * **Soft Start Algorithm:** Prevents motor stalling by gradually ramping velocity during startup.
+    * **RPM Limiting:** Firmware Hard Limit prevents speeds exceeding 50 RPM to protect mechanics.
+    * **Hardware Interlocks:** Dual limit switches and clamp sensors to detect mechanical faults.
+* **User Interface:** 1.69-inch IPS TFT display for real-time monitoring and parameter adjustment.
 
 ## 🛠 System Architecture
 
 ### Hardware Components (BOM)
-[cite_start]The system is built around the following key components[cite: 146, 150]:
+The system is built around the following key components:
 | Component | Specification | Role |
 | :--- | :--- | :--- |
 | **MCU** | ESP32-WROOM-32 | Central processing and logic control |
@@ -38,9 +38,9 @@ This project is a medical-grade automated syringe pump designed for high-precisi
 
 ### Mechanical Design
 The chassis is 3D printed and features a **rigid linear guide system**:
-* [cite_start]**Structure:** Stainless steel guide rods and LM5UU linear bearings ensure alignment[cite: 150, 249].
-* [cite_start]**Mechanism:** Direct drive via T8 lead screw converts rotational motion to linear displacement[cite: 248].
-* [cite_start]**Enclosure:** Includes a syringe clamp, transparent trap door, and integrated cooling fan for the driver [cite: 182-183].
+* **Structure:** Stainless steel guide rods and LM5UU linear bearings ensure alignment.
+* **Mechanism:** Direct drive via T8 lead screw converts rotational motion to linear displacement.
+* **Enclosure:** Includes a syringe clamp, transparent trap door, and integrated cooling fan for the driver.
 
 ## 💻 Firmware & Pinout
 
