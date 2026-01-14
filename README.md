@@ -44,6 +44,7 @@ The chassis is 3D printed and features a **rigid linear guide system**:
 * **Enclosure:** Includes a syringe clamp, transparent trap door, and integrated cooling fan for the driver.
 
 ![Inside structure](inside-device-design.png)
+
 *The inside structure of Syringe pump machine*
 
 ## 💻 Firmware & Pinout
