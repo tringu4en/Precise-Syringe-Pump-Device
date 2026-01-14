@@ -67,6 +67,7 @@ Based on `Main.ino` and PCB Schematics:
 | **35, 33, 34, 32, 36, 39, 26** | Input | Navigation Buttons (Right, Left, Up, Down, Start/Stop, Clear, OK) |
 
 ![Schematic view](Esp32-wiring.png)
+
 *The schematic of Microcontroler ESP32 of the system*
 
 ### Logic Flow
@@ -76,6 +77,7 @@ Based on `Main.ino` and PCB Schematics:
 3.  **Operation:** The system enters `STATE_PUMPING`, continuously monitoring `updateMotorLogic()` for limit switch triggers or completion events.
 
 !Flow chart](flow-chart.png)
+
 *The complete flow chart of the system*
 
 ## 📊 Validation & Results
@@ -89,7 +91,8 @@ The system underwent rigorous testing using a gravimetric method (distilled wate
     * **Precision:** Standard Deviation ±0.012 mL
 
 ![Test Results](test-results.png)
-*(Figure 12: Consistency results over 95 continuous pumping cycles)*
+
+*Consistency results over 95 continuous pumping cycles*
 
 ## 🚀 Installation & Usage
 
