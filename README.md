@@ -1,7 +1,7 @@
 # Precision Syringe Pump System (ESP32 + TMC2209)
 
-[![Project Status: Prototype Completed](https://img.shields.io/badge/Status-Prototype_Completed-green)](Docs/Report.pdf)
-[![Category: Hardware](https://img.shields.io/badge/Category-Biomedical_Device-blue)](Docs/Report.pdf)
+[![Project Status: Prototype Completed](https://img.shields.io/badge/Status-Prototype_Completed-green)]()
+[![Category: Hardware](https://img.shields.io/badge/Category-Biomedical_Device-blue)]()
 ![Platform](https://img.shields.io/badge/Platform-ESP32-blue)
 
 ## 📖 Overview
