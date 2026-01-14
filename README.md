@@ -70,6 +70,17 @@ Based on `Main.ino` and PCB Schematics:
 
 *The schematic of Microcontroler ESP32 of the system*
 
+## 📂 Firmware Source Code
+
+The core logic for the device is contained in the **`Main.ino`** file. This code implements the Finite State Machine (FSM), TMC2209 UART driver control, and the TFT user interface.
+
+👉 **[View Source Code (Main.ino)](./Main.ino)**
+
+### Key Code Modules:
+* [cite_start]**Pin Definitions:** GPIO mappings for ESP32, including limit switches and sensors [cite: 344-346].
+* [cite_start]**Safety Logic:** Implementation of `MAX_RPM_LIMIT` and `updateMotorLogic()` for error handling[cite: 349, 435].
+* [cite_start]**FSM Implementation:** State management for `PAGE_RUNNING`, `STATE_PUMPING`, and `STATE_ERROR` [cite: 352-353].
+
 ### Logic Flow
 ## Generally having three steps:
 1.  **Homing Sequence:** Upon boot, the system executes `runHomingSequence()`, utilizing a custom acceleration ramp to retract the pusher block safely.
