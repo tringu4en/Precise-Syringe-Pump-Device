@@ -101,7 +101,7 @@ The core logic for the device is contained in the **`Main.ino`** file. This code
 2.  **Infusion Calculation:** `startInfusion()` calculates the required motor RPM based on syringe diameter and target flow rate. It aborts if RPM > `MAX_RPM_LIMIT`.
 3.  **Operation:** The system enters `STATE_PUMPING`, continuously monitoring `updateMotorLogic()` for limit switch triggers or completion events.
 
-!Flow chart](flow-chart.png)
+![Flow chart](flow-chart.png)
 
 *The complete flow chart of the system*
 
