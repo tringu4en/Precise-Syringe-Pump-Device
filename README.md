@@ -47,6 +47,20 @@ The chassis is 3D printed and features a **rigid linear guide system**:
 
 *The inside structure of Syringe pump machine*
 
+## 🔌 PCB & Electronics Design
+
+The electronics are consolidated onto 2 custom-designed 2-layer PCB pieces to minimize wiring complexity and ensure signal integrity.
+
+![PCB Layout](PCB-des.png)
+
+Custom PCB Layout featuring ESP32 and TMC2209 driver integration*
+
+### Key Circuit Features
+* **Power Regulation:** Steps down 12V input to 5V (MP2482) and 3.3V (LM1086) to power logic components stably.
+* [**Driver Integration:** Onboard TMC2209 stepper driver with UART communication for dynamic current control and micro-stepping configuration.
+* **Safety Circuitry:** Integrated **TPS3823 Watchdog Timer** to automatically reset the MCU if voltage irregularities or firmware hangs occur.
+* **Peripherals:** Dedicated ports for Limit Switches, I2C LCD, and active cooling fan control.
+
 ## 💻 Firmware & Pinout
 
 The firmware is written in C++ (Arduino Framework) and utilizes a **Finite State Machine (FSM)** to manage operations safely.
