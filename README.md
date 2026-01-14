@@ -10,7 +10,7 @@ This project is a medical-grade automated syringe pump designed for high-precisi
 The device utilizes an **ESP32 microcontroller** and **TMC2209 SilentStepStick driver** to achieve a verified dosing accuracy of **99.62%**. It features a custom 3D-printed enclosure, a real-time TFT display interface, and a closed-loop safety system.
 
 ![Device Design](device-design.png)
-*(Figure 9: The complete design of Syringe pump machine)*
+*The complete design of Syringe pump machine*
 
 ## ✨ Key Features
 * **High Precision:** Volumetric accuracy of **99.62%** with a standard deviation of **±0.012 mL** (verified via gravimetric testing).
@@ -33,7 +33,8 @@ The system is built around the following key components:
 | **Motor** | NEMA 17 Stepper | 1.8° step angle, 200 steps/rev |
 | **Transmission** | T8 Lead Screw | 2mm pitch, direct coupling (1:1 ratio) |
 | **Display** | 1.69" ST7789 TFT | User interface and status display |
-| **Power** | MP2482 Buck Converter | Steps down 12V to 5V for logic |
+| **Power** | MP2482 Buck Converter | Steps down 12V to 5V for power |
+| **Power** | LM1085 | Steps down 5V to 3.3V for logic |
 | **Safety** | TPS3823-33 | Watchdog timer for system reliability |
 
 ### Mechanical Design
@@ -42,12 +43,15 @@ The chassis is 3D printed and features a **rigid linear guide system**:
 * **Mechanism:** Direct drive via T8 lead screw converts rotational motion to linear displacement.
 * **Enclosure:** Includes a syringe clamp, transparent trap door, and integrated cooling fan for the driver.
 
+![Inside structure](inside-device-design.png)
+*The inside structure of Syringe pump machine*
+
 ## 💻 Firmware & Pinout
 
 The firmware is written in C++ (Arduino Framework) and utilizes a **Finite State Machine (FSM)** to manage operations safely.
 
 ### Wiring Configuration
-[cite_start]Based on `Main.ino` and PCB Schematics [cite: 344-346, 173]:
+Based on `Main.ino` and PCB Schematics:
 
 | ESP32 GPIO | Function | Description |
 | :--- | :--- | :--- |
@@ -59,16 +63,23 @@ The firmware is written in C++ (Arduino Framework) and utilizes a **Finite State
 | **15** | Output | Buzzer for Audible Alerts |
 | **25** | Output | NeoPixel RGB LED Status |
 | **36** | Input | Start/Stop Button |
-| **35, 33, 34, 32** | Input | Navigation Buttons (Right, Left, Up, Down) |
+| **35, 33, 34, 32, 36, 39, 26** | Input | Navigation Buttons (Right, Left, Up, Down, Start/Stop, Clear, OK) |
+
+![Schematic view](Esp32-wiring.png)
+*The schematic of Microcontroler ESP32 of the system*
 
 ### Logic Flow
-1.  [cite_start]**Homing Sequence:** Upon boot, the system executes `runHomingSequence()`, utilizing a custom acceleration ramp to retract the pusher block safely [cite: 370-380].
-2.  **Infusion Calculation:** `startInfusion()` calculates the required motor RPM based on syringe diameter and target flow rate. [cite_start]It aborts if RPM > `MAX_RPM_LIMIT` [cite: 429-432].
-3.  [cite_start]**Operation:** The system enters `STATE_PUMPING`, continuously monitoring `updateMotorLogic()` for limit switch triggers or completion events[cite: 435].
+## Generally having three steps:
+1.  **Homing Sequence:** Upon boot, the system executes `runHomingSequence()`, utilizing a custom acceleration ramp to retract the pusher block safely.
+2.  **Infusion Calculation:** `startInfusion()` calculates the required motor RPM based on syringe diameter and target flow rate. It aborts if RPM > `MAX_RPM_LIMIT`.
+3.  **Operation:** The system enters `STATE_PUMPING`, continuously monitoring `updateMotorLogic()` for limit switch triggers or completion events.
+
+!Flow chart](flow-chart.png)
+*The complete flow chart of the system*
 
 ## 📊 Validation & Results
 
-[cite_start]The system underwent rigorous testing using a gravimetric method (distilled water density ≈ 1.00 g/mL)[cite: 218].
+The system underwent rigorous testing using a gravimetric method (distilled water density ≈ 1.00 g/mL).
 
 * **Test Protocol:** 95 consecutive cycles of 5 mL delivery.
 * **Results:**
@@ -77,11 +88,11 @@ The firmware is written in C++ (Arduino Framework) and utilizes a **Finite State
     * **Precision:** Standard Deviation ±0.012 mL
 
 ![Test Results](test-results.png)
-[cite_start]*(Figure 12: Consistency results over 95 continuous pumping cycles [cite: 267])*
+*(Figure 12: Consistency results over 95 continuous pumping cycles)*
 
 ## 🚀 Installation & Usage
 
-1.  [cite_start]**Dependencies:** Install the following libraries in Arduino IDE or PlatformIO[cite: 344]:
+1.  **Dependencies:** Install the following libraries in Arduino IDE or PlatformIO:
     * `Adafruit_GFX`
     * `Adafruit_ST7789`
     * `TMCStepper`
@@ -96,15 +107,14 @@ The firmware is written in C++ (Arduino Framework) and utilizes a **Finite State
     * Select **Start Run**.
 
 ## ⚠️ Known Limitations
-* [cite_start]**One-Way Operation:** Current mechanical design supports infusion (pushing) only, not withdrawal[cite: 309].
-* [cite_start]**LED Logic:** In current firmware version v1.0, the LED color logic may be inverted (Green for Stop, Yellow for Run) compared to standard safety protocols[cite: 302].
+* **One-Way Operation:** Current mechanical design supports infusion (pushing) only, not withdrawal.
+* **LED Logic:** In current firmware version v1.0, the LED color logic may be inverted (Green for Stop, Yellow for Run) compared to standard safety protocols.
 
-## 👥 Developer
+## 👥 Contributors
 * **Nguyen Tan Tri**
-
 
 ## 📄 License
 This project is open-source for educational and research purposes.
 
 ---
-[cite_start]*Based on the "Medical Design Course" Final Report, submitted Dec 2025.* [cite: 8]
+*Based on the "Medical Design Course" Final Report, submitted Dec 2025.*
