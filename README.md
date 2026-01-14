@@ -112,10 +112,10 @@ The system underwent rigorous testing using a gravimetric method (distilled wate
 * **LED Logic:** In current firmware version v1.0, the LED color logic may be inverted (Green for Stop, Yellow for Run) compared to standard safety protocols.
 
 ## 👥 Contributors
-* **Nguyen Tan Tri**
+* **Nguyen Tan Tri - BME - K23**
 
-## 📄 License
+## 📄 Purpose of publish
 This project is open-source for educational and research purposes.
 
 ---
-*Based on the "Medical Design Course" Final Report, submitted Dec 2025.*
+*The device is the final project for Medical Design course of Biomedical Engineering department, International University VNU-HCMC*
