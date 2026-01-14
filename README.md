@@ -2,7 +2,6 @@
 
 ![Project Status](https://img.shields.io/badge/Status-Prototype%20Validated-success)
 ![Platform](https://img.shields.io/badge/Platform-ESP32-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ## 📖 Overview
 This project is a medical-grade automated syringe pump designed for high-precision fluid delivery in laboratory and clinical settings. Developed as part of the **Medical Design Course** at the **School of Biomedical Engineering, International University (VNU-HCM)**, the system focuses on resolving common intravenous administration errors through automation and safety monitoring.
